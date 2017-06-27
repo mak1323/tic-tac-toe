@@ -1,0 +1,17 @@
+$pure-white: #fff;
+$pure-black: #000;
+$test-red: #f4020e;
+$test-blue: #161eff;
+$test-green: #05fc63;
+
+nav {
+  background: $test-blue;
+}
+
+.game-notes {
+  background-color: $test-red;
+}
+
+.game {
+  background-color: $test-green;
+}

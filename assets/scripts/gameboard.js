@@ -12,6 +12,17 @@ const gameboard = [
   [2, 2]
 ]
 
+const gameboardPosition = [
+  '#gameBoxTopLeft',
+  '#gameBoxTopMiddle',
+  '#gameBoxTopRight',
+  '#gameBoxMiddleLeft',
+  '#gameBoxMiddleMiddle',
+  '#gameBoxMiddleRight',
+  '#gameBoxBottomLeft',
+  '#gameBoxBottomMiddle',
+  '#gameBoxBottomRight'
+]
 const winningConditions = {
   conditionOne: [
     [0, 0],
@@ -53,4 +64,10 @@ const winningConditions = {
     [1, 1],
     [2, 2]
   ]
+}
+
+module.exports = {
+  gameboard,
+  winningConditions,
+  gameboardPosition
 }

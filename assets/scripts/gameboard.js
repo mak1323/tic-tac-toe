@@ -84,7 +84,21 @@ const winningConditions = {
   ]
 }
 
+const positionToValue = function (event) {
+  event.preventDefault()
+  const data = this.id
+  console.log(data)
+  for (let i = 0; i < gameboardPosition.length; i++) {
+    if (data === gameboardPosition[i].positionName) {
+      console.log(gameboardPosition[i].positionName)
+      console.log(gameboardPosition[i].id)
+      return gameboardPosition[i].id
+    }
+  }
+}
+
 module.exports = {
   winningConditions,
-  gameboardPosition
+  gameboardPosition,
+  positionToValue
 }

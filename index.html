@@ -16,18 +16,21 @@
 <body class="container-fluid">
   <header>
     <h1>Tic Tac Toe</h1>
-    <nav>
+    <nav class="container">
       <div class="row">
-        <div class="col-sm-2">
+        <!-- <div class="col-sm-2"> -->
         </div>
         <div class="col-sm-8">
         </div>
-        <div class="col-sm-1">
+        <div class="col-sm-1 nav-buttons">
           <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signInModal">
             Sign In
           </button>
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#changePwModal">
+            Change Password
+          </button>
         </div>
-        <div class="col-sm-1">
+        <div class="col-sm-1 nav-buttons">
           <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signUpModal">
             Sign Up
           </button>
@@ -35,9 +38,9 @@
             Sign Out
           </button>
         </div>
-      </div>
     </nav>
   </header>
+<hr>
   <div class="game-notes">
     <h2>Stuff!</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
@@ -48,53 +51,64 @@
       <div class="row">
         <div class="col-xs-4 box" id="gameBoxTopLeft">
           <div class="game-box-top-left">
-            <p>gameBoxTopLeft [0,0]</p>
+
+            <!-- <p>gameBoxTopLeft [0,0]</p> -->
           </div>
         </div>
         <div class="col-xs-4 box" id="gameBoxTopMiddle">
           <div class="game-box-top-middle">
-            <p>gameBoxTopMiddle [0,1]</p>
+
+            <!-- <p>gameBoxTopMiddle [0,1]</p> -->
           </div>
         </div>
         <div class="col-xs-4 box" id="gameBoxTopRight">
           <div class="game-box-top-right">
-            <p>gameBoxTopRight [0,2]</p>
+
+            <!-- <p>gameBoxTopRight [0,2]</p> -->
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-4 box" id="gameBoxMiddleLeft">
           <div class="game-box-middle-left">
-            <p>gameBoxMiddleLeft [1,0]</p>
+
+            <!-- <p>gameBoxMiddleLeft [1,0]</p> -->
           </div>
         </div>
         <div class="col-xs-4 box" id="gameBoxMiddleMiddle">
           <div class="game-box-middle-middle">
-            <p>gameBoxMiddleMiddle [1,1]</p>
+
+            <!-- <p>gameBoxMiddleMiddle [1,1]</p> -->
           </div>
         </div>
         <div class="col-xs-4 box" id="gameBoxMiddleRight">
           <div class="game-box-middle-right">
-            <p>gameBoxMiddleRight [1,2]</p>
+
+            <!-- <p>gameBoxMiddleRight [1,2]</p> -->
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-4 box" id="gameBoxBottomLeft">
           <div class="game-box-bottom-left">
-            <p>gameBoxBottomLeft[2,0]</p>
+
+            <!-- <p>gameBoxBottomLeft[2,0]</p> -->
           </div>
         </div>
         <div class="col-xs-4 box" id="gameBoxBottomMiddle">
           <div class="game-box-bottom-middle">
-            <p>gameBoxBottomMiddle [2,1]</p>
+
+            <!-- <p>gameBoxBottomMiddle [2,1]</p> -->
           </div>
         </div>
         <div class="col-xs-4 box" id="gameBoxBottomRight">
           <div class="game-box-bottom-right">
-            <p>gameBoxBottomRight [2,2] </p>
+
+            <!-- <p>gameBoxBottomRight [2,2] </p> -->
           </div>
         </div>
+      </div>
+      <div class="score-box">
       </div>
   </div>
   <!-- the sign in form -->

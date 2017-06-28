@@ -1,10 +1,25 @@
 @import 'colors';
 
 .game-box {
+  align-self: center;
+  align-content: center;
   background-color: $pure-black;
+  height: auto;
+  width: auto;
+  position: relative;
 }
 
 .box {
   background-color: $pure-white;
   border: 2px solid $pure-black;
+  height: 200px;
+  width: 200px;
+
+}
+
+.score-box {
+  background-color: $pure-white;
+  height: 600px;
+  width: 200px;
+  float:right;
 }

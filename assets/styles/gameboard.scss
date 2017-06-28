@@ -1,0 +1,10 @@
+@import 'colors';
+
+.game-box {
+  background-color: $pure-black;
+}
+
+.box {
+  background-color: $pure-white;
+  border: 2px solid $pure-black;
+}

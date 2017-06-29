@@ -3,8 +3,11 @@
 const getFormFields = require('../../lib/get-form-fields')
 const gameboardRef = require('./gameboard')
 const winners = require('./winningconditions')
+const moves = require('./playermove')
 
 let playerOne = []
+let playerTwo = []
+let playerTurn = 0
 
 const positionToValue = function(currentBox) {
   const data = currentBox.id
@@ -17,19 +20,24 @@ const positionToValue = function(currentBox) {
 
 const playerMove = function(event) {
     event.preventDefault()
-    console.log(this)
     const currentBox = this
     const currentMove = positionToValue(currentBox)
-
-    playerOne.push({
-      'move': currentMove
-    })
-    console.log(playerOne)
-    if (playerOne.length >= 3) {
-      winners.checkVictory(playerOne)
+    if (playerTurn === 0) {
+        playerOne.push({
+          'move': currentMove
+        })
+      let img = $('<img />', {
+        id: 'img',
+        src: '../assets/images/tic-tac-toe-x.svg',
+        alt: 'X'
+      })
+      img.appendTo($(currentBox))
     }
+  console.log(playerOne)
+  if (playerOne.length >= 3) {
   }
+}
 
-    module.exports = {
-      playerMove
-    }
+module.exports = {
+  playerMove
+}

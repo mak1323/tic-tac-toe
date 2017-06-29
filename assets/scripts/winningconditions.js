@@ -373,13 +373,5 @@ const checkVictory = function (playerarr) {
 
 module.exports = {
   winningConditions,
-  checkVictoryZero,
-  checkVictoryOne,
-  checkVictoryTwo,
-  checkVictoryThree,
-  checkVictoryFour,
-  checkVictoryFive,
-  checkVictorySix,
-  checkVictorySeven,
   checkVictory
 }

@@ -8,6 +8,11 @@ $(() => {
   setAPIOrigin(location, config)
 })
 
+const authEvents = require('./auth/authevents.js')
+$(() => {
+  authEvents.addHandlers()
+})
+
 $(() => {
   $('.box').on('click', events.playerMove)
 })

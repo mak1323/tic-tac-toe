@@ -1,16 +1,25 @@
 'use strict'
 
-// const gameboard = [
-//   [0, 0],
-//   [0, 1],
-//   [0, 2],
-//   [1, 0],
-//   [1, 1],
-//   [1, 2],
-//   [2, 0],
-//   [2, 1],
-//   [2, 2]
-// ]
+const gameboard = [
+  {position: [0, 0],
+    state: false},
+  {position: [0, 1],
+    state: false},
+  {position: [0, 2],
+    state: false},
+  {position: [1, 0],
+    state: false},
+  {position: [1, 1],
+    state: false},
+  {position: [1, 2],
+    state: false},
+  {position: [2, 0],
+    state: false},
+  {position: [2, 1],
+    state: false},
+  {position: [2, 2],
+    state: false}
+]
 
 const gameboardPosition = [{
   positionName: 'gameBoxTopLeft',
@@ -42,5 +51,6 @@ const gameboardPosition = [{
 }]
 
 module.exports = {
-  gameboardPosition
+  gameboardPosition,
+  gameboard
 }

@@ -17,7 +17,6 @@ const signInSuccess = (data) => {
   $('.game-box').show()
   $('.game-stats').show()
   $('.fun').hide()
-
 }
 
 const signUpFailure = (error) => {

@@ -55,7 +55,7 @@ const playerMove = function(event) {
       'move-location': currentMove,
       'current-player': 'player-one'
     })
-    let img = $('<img />', {
+    const img = $('<img />', {
       id: 'img',
       src: '../assets/images/tic-tac-toe-x.svg',
       alt: 'X'
@@ -70,7 +70,7 @@ const playerMove = function(event) {
       'move-location': currentMove,
       'current-player': 'player-two'
     })
-    let img = $('<img />', {
+    const img = $('<img />', {
       id: 'img',
       src: '../assets/images/tic-tac-toe-o.svg',
       alt: 'O'

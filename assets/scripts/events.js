@@ -4,6 +4,7 @@ const getFormFields = require('../../lib/get-form-fields')
 const gameboardRef = require('./gameboard')
 const winners = require('./winningconditions')
 const moves = require('./playermove')
+const autheventer = ('./auth/authevents')
 
 let playerOne = []
 let playerTwo = []
@@ -12,7 +13,6 @@ let gameRecord = []
 let gameState = {}
 let currentGameBoard = gameboardRef.gameboard
 
-
 const positionToValue = function(currentBox) {
   const data = currentBox.id
   for (let i = 0; i < gameboardRef.gameboardPosition.length; i++) {
@@ -20,6 +20,17 @@ const positionToValue = function(currentBox) {
       return gameboardRef.gameboardPosition[i].id
     }
   }
+}
+
+const boardSet = function () {
+  currentGameBoard = []
+  currentGameBoard = gameboardRef.gameboardRef
+  playerOne = []
+  playerTwo = []
+  $('.box').children('img').remove
+  gameRecord = []
+  gameState = {}
+
 }
 
 const playerMove = function(event) {
@@ -82,5 +93,6 @@ const playerMove = function(event) {
 
 module.exports = {
   playerMove,
-  gameState
+  gameState,
+  boardSet
 }

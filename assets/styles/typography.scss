@@ -1,7 +1,18 @@
 
 
 body {
-  background-color: $pure-black;
+  background-color: $pure-white;
   max-width: auto;
   text-align: center;
+}
+
+.icon {
+  align-content: center;
+  max-width: 25%;
+  max-height: 25%
+}
+
+.fun {
+  max-width: 900px;
+  max-height: 900px
 }

@@ -4,6 +4,7 @@ const getFormFields = require('../../../lib/get-form-fields')
 
 const api = require('./api')
 const ui = require('./ui')
+let playerSave = {}
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -47,6 +48,7 @@ const addHandlers = () => {
   $('#signout').on('submit', onSignOut)
 }
 
-  module.exports = {
-    addHandlers
-  }
+module.exports = {
+  addHandlers,
+  playerSave
+}

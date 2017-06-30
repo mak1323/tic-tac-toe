@@ -15,14 +15,19 @@
 
 <body class="container-fluid">
   <header>
+    <div class="row">
+      <div class="col-xs-5"></div>
+      <div class="col-xs-2 icon"> <img src="../assets/images/header-icon.svg" alt="icon"></div>
+      <div class="col-xs-5"></div>
+    </div>
     <h1>Tic Tac Toe</h1>
     <nav class="container">
       <form id="sign-up">
   <fieldset>
     <legend>Sign up!</legend>
-    <input type="text" placeholder="EMAIL" name="credentials[email]">
-    <input type="password" placeholder="PASSWORD" name="credentials[password]">
-    <input type="password" placeholder="CONFIRM PASSWORD" name="credentials[password_confirmation]">
+  <input name="credentials[email]" type="text" value="an@example.email">
+  <input name="credentials[password]" type="password" value="an example password">
+  <input name="credentials[password_confirmation]" type="password" value="an example password">
     <input type="submit" name="submit" value="Sign up!">
   </fieldset>
 </form>
@@ -50,9 +55,34 @@
   <hr>
   <div class="game-notes">
     <h2>Stuff!</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Tic Tac Toe, or as it was known in ancient times, Tic Tac Toe is a game that has been around for thousands of hours. It was the
+      the favorite game of Alexander Graham Bellington, the third in line for the throne of ballpark bathroom. He would play this game on the
+    walls of the stall whilest others waited for him to leave the doorless porcelain chamber. He was not a pleasant man.</p>
+    <div class="container game-stats">
+      <div class="row">
+        <div class="col-xs-4">
+    <h4 id="wins"> Wins:<span id="span-wins"></span></h4>
   </div>
+      <div class="col-xs-4">
+    <h4 id="losses"> Losses:<span id="span-loseses"></span></h4>
+  </div>
+      <div class="col-xs-4">
+    <h4 id="ties"> Ties:<span id="span-ties"></span></h4>
+  </div>
+</div>
+</div>
+  <div class="row game-stats">
+    <div class="col-xs-8">
+      <p id="moves"> Moves: <span id="span-game-stats"></span></p>
+    </div>
+    <button id="new-game">New Game</button>
+  </div>
+  </div>
+  <div class="fun">
+    <img src="../assets/images/header-icon.svg" alt="icon">
+</div>
+
+
 
   <div class="container game-box">
     <div class="row">

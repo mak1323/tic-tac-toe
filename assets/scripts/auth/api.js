@@ -39,9 +39,20 @@ const signOut = function (data) {
   })
 }
 
+const getStates = function (data) {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiOrigin + '/games',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  getStates
 }

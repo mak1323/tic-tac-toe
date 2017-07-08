@@ -3,10 +3,10 @@ const winners = require('./winningconditions')
 const gameboardPosition = ('./gameboard')
 
 
-const playerOneMove = function(playerarr) {
+const playerOneMove = function(event) {
   playerarr.push({
     'move': currentMove
-  })
+})
 }
 
 const playerTwoMove = function(event) {

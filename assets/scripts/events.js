@@ -5,6 +5,7 @@ const gameboardRef = require('./gameboard')
 const winners = require('./winningconditions')
 const moves = require('./playermove')
 const autheventer = ('./auth/authevents')
+const newgamegen = ('./newgame')
 
 let playerOne = []
 let playerTwo = []
@@ -13,7 +14,7 @@ let gameRecord = []
 let gameState = {}
 let currentGameBoard = gameboardRef.gameboard
 
-const positionToValue = function(currentBox) {
+const positionToValue = function (currentBox) {
   const data = currentBox.id
   for (let i = 0; i < gameboardRef.gameboardPosition.length; i++) {
     if (data === gameboardRef.gameboardPosition[i].positionName) {
@@ -22,18 +23,50 @@ const positionToValue = function(currentBox) {
   }
 }
 
+const xMove = function (currentMove, currentBox) {
+  playerOne.push({
+    'move': currentMove
+  })
+  gameRecord.push({
+    'move-location': currentMove,
+    'current-player': 'player-one'
+  })
+  const img = $('<img />', {
+    id: 'img',
+    src: '../assets/images/tic-tac-toe-x.svg',
+    alt: 'X'
+  })
+  img.appendTo($(currentBox))
+}
+
+const oMove = function (currentMove, currentBox) {
+  playerTwo.push({
+    'move': currentMove
+  })
+  gameRecord.push({
+    'move-location': currentMove,
+    'current-player': 'player-two'
+  })
+  const img = $('<img />', {
+    id: 'img',
+    src: '../assets/images/tic-tac-toe-o.svg',
+    alt: 'O'
+  })
+  img.appendTo($(currentBox))
+}
+
 const boardSet = function () {
   currentGameBoard = []
   currentGameBoard = gameboardRef.gameboardRef
   playerOne = []
   playerTwo = []
-  $('.box').children('img').remove
   gameRecord = []
   gameState = {}
+  newgamegen.newGameGenerator()
 
 }
 
-const playerMove = function(event) {
+const playerMove = function (event) {
   event.preventDefault()
   const currentBox = this
   const currentMove = positionToValue(currentBox)
@@ -48,34 +81,10 @@ const playerMove = function(event) {
     }
   }
   if (playerTurn === 0) {
-    playerOne.push({
-      'move': currentMove
-    })
-    gameRecord.push({
-      'move-location': currentMove,
-      'current-player': 'player-one'
-    })
-    const img = $('<img />', {
-      id: 'img',
-      src: '../assets/images/tic-tac-toe-x.svg',
-      alt: 'X'
-    })
-    img.appendTo($(currentBox))
+    xMove(currentMove, currentBox)
     playerTurn = 1
   } else if (playerTurn === 1) {
-    playerTwo.push({
-      'move': currentMove
-    })
-    gameRecord.push({
-      'move-location': currentMove,
-      'current-player': 'player-two'
-    })
-    const img = $('<img />', {
-      id: 'img',
-      src: '../assets/images/tic-tac-toe-o.svg',
-      alt: 'O'
-    })
-    img.appendTo($(currentBox))
+    oMove(currentMove, currentBox)
     playerTurn = 0
   }
   if (winners.checkVictory(playerOne)) {
@@ -89,7 +98,6 @@ const playerMove = function(event) {
     console.log('tie')
   }
 }
-
 
 module.exports = {
   playerMove,

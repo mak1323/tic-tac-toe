@@ -5,15 +5,16 @@ const gameboardRef = require('./gameboard')
 const winners = require('./winningconditions')
 const moves = require('./playermove')
 const autheventer = ('./auth/authevents')
-const newgamegen = ('./newgame')
+const newGameGen = ('./newgame')
 
-let playerOne = []
-let playerTwo = []
-let playerTurn = 0
-let gameRecord = []
+let playerOne = [] // empty array for player one's turns
+let playerTwo = [] // empty array for player two's turns
+let playerTurn = 0 // player toggle switch
+let gameRecord = [] // all player moves are stored here
 let gameState = {}
-let currentGameBoard = gameboardRef.gameboard
+let currentGameBoard = gameboardRef.gameboard // sets a blank game board array
 
+// this piece sets figures out what the box is in position to the game board
 const positionToValue = function (currentBox) {
   const data = currentBox.id
   for (let i = 0; i < gameboardRef.gameboardPosition.length; i++) {
@@ -23,6 +24,12 @@ const positionToValue = function (currentBox) {
   }
 }
 
+const boardReset = function () {
+// I need to iterate through gameboard and make sure it is blank.
+  console.log(currentGameBoard)
+}
+
+// this is the player x move. The x is  conjures an svg file, but that isn't feasable on line
 const xMove = function (currentMove, currentBox) {
   playerOne.push({
     'move': currentMove
@@ -55,15 +62,9 @@ const oMove = function (currentMove, currentBox) {
   img.appendTo($(currentBox))
 }
 
-const boardSet = function () {
-  currentGameBoard = []
-  currentGameBoard = gameboardRef.gameboardRef
-  playerOne = []
-  playerTwo = []
-  gameRecord = []
-  gameState = {}
-  newgamegen.newGameGenerator()
-
+const boardSet = function (event) {
+  event.preventDefault()
+  boardReset()
 }
 
 const playerMove = function (event) {

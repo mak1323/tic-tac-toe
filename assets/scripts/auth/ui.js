@@ -14,7 +14,7 @@ const signInSuccess = (data) => {
   $('.game-stats').show()
   $('#sign-up').hide()
   $('#sign-in').hide()
-  $('.game-box').show()
+  $('#game-box').show()
   $('.game-stats').show()
   $('.fun').hide()
 }
@@ -35,7 +35,6 @@ const signOutSuccess = function () {
   console.log('BYYYYyyyeee')
   $('#change-password').hide()
   $('#signout').hide()
-  $('.game-box').hide()
   $('.game-stats').hide()
   $('#sign-up').show()
   $('#sign-in').show()

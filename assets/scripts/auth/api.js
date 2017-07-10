@@ -2,6 +2,7 @@
 const config = require('../config')
 const store = require('../store')
 
+// this is my sign up function, working well
 const signUp = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/sign-up',
@@ -10,6 +11,7 @@ const signUp = function (data) {
   })
 }
 
+// this is the sign in function, working a ok
 const signIn = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/sign-in',
@@ -18,6 +20,7 @@ const signIn = function (data) {
   })
 }
 
+//  change password is working fine.
 const changePassword = function (data) {
   return $.ajax({
     method: 'PATCH',
@@ -29,6 +32,7 @@ const changePassword = function (data) {
   })
 }
 
+// this is working perfectly fine
 const signOut = function (data) {
   return $.ajax({
     method: 'DELETE',
@@ -39,6 +43,7 @@ const signOut = function (data) {
   })
 }
 
+// this needs to be fixed
 const getStates = function (data) {
   return $.ajax({
     method: 'GET',

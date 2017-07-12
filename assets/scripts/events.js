@@ -25,7 +25,14 @@ const positionToValue = function (currentBox) {
 }
 
 const boardReset = function () {
-// I need to iterate through gameboard and make sure it is blank.
+  for (let i = 0; i < currentGameBoard.length; i++) {
+      if (currentGameBoard[i].state === true) {
+        currentGameBoard[i].state = false
+      }
+    }
+}
+
+const logicReset = function () {
   playerOne = [] // empty array for player one's turns
   playerTwo = [] // empty array for player two's turns
   playerTurn = 0 // player toggle switch
@@ -38,6 +45,7 @@ const boardReset = function () {
 const boardSet = function (event) {
   event.preventDefault()
   boardReset()
+  logicReset()
 }
 const xMove = function (currentMove, currentBox) {
   playerOne.push({

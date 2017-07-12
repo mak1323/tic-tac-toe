@@ -1,19 +1,17 @@
 'use strict'
-const winners = require('./winningconditions')
-const gameboardPosition = ('./gameboard')
 
-
-const playerOneMove = function(event) {
+const playerOneMove = function (event) {
   playerarr.push({
     'move': currentMove
-})
+  })
 }
 
-const playerTwoMove = function(event) {
+const playerTwoMove = function (event) {
   playerarr.push({
-    'move': currentMove
-})
+    'move': events.currentMove
+  })
 }
+
 module.exports = {
   playerOneMove,
   playerTwoMove

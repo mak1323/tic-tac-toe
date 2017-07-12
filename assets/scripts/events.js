@@ -26,10 +26,19 @@ const positionToValue = function (currentBox) {
 
 const boardReset = function () {
 // I need to iterate through gameboard and make sure it is blank.
-  console.log(currentGameBoard)
+  playerOne = [] // empty array for player one's turns
+  playerTwo = [] // empty array for player two's turns
+  playerTurn = 0 // player toggle switch
+  gameRecord = [] // all player moves are stored here
+  gameState = {}
+  currentGameBoard = gameboardRef.gameboard // sets a blank game board array
+  $('.box').children().remove('p')
 }
 
-// this is the player x move. The x is  conjures an svg file, but that isn't feasable on line
+const boardSet = function (event) {
+  event.preventDefault()
+  boardReset()
+}
 const xMove = function (currentMove, currentBox) {
   playerOne.push({
     'move': currentMove
@@ -38,12 +47,8 @@ const xMove = function (currentMove, currentBox) {
     'move-location': currentMove,
     'current-player': 'player-one'
   })
-  const img = $('<img />', {
-    id: 'img',
-    src: '../assets/images/tic-tac-toe-x.svg',
-    alt: 'X'
-  })
-  img.appendTo($(currentBox))
+  const x = $('<p>X</p>')
+  x.appendTo($(currentBox))
 }
 
 const oMove = function (currentMove, currentBox) {
@@ -54,17 +59,8 @@ const oMove = function (currentMove, currentBox) {
     'move-location': currentMove,
     'current-player': 'player-two'
   })
-  const img = $('<img />', {
-    id: 'img',
-    src: '../assets/images/tic-tac-toe-o.svg',
-    alt: 'O'
-  })
-  img.appendTo($(currentBox))
-}
-
-const boardSet = function (event) {
-  event.preventDefault()
-  boardReset()
+  const x = $('<p>O</p>')
+  x.appendTo($(currentBox))
 }
 
 const playerMove = function (event) {

@@ -5,7 +5,7 @@ const store = require('../store')
 // this is my sign up function, working well
 const signUp = function (data) {
   return $.ajax({
-    url: config.apiOrigin + '/sign-up',
+    url: config.apiOrigin + 'sign-up',
     method: 'POST',
     data
   })
@@ -14,7 +14,7 @@ const signUp = function (data) {
 // this is the sign in function, working a ok
 const signIn = function (data) {
   return $.ajax({
-    url: config.apiOrigin + '/sign-in',
+    url: config.apiOrigin + 'sign-in',
     method: 'POST',
     data
   })
@@ -24,7 +24,7 @@ const signIn = function (data) {
 const changePassword = function (data) {
   return $.ajax({
     method: 'PATCH',
-    url: config.apiOrigin + '/change-password/' + store.user.id,
+    url: config.apiOrigin + 'change-password/' + store.user.id,
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
@@ -36,7 +36,7 @@ const changePassword = function (data) {
 const signOut = function (data) {
   return $.ajax({
     method: 'DELETE',
-    url: config.apiOrigin + '/sign-out/' + store.user.id,
+    url: config.apiOrigin + 'sign-out/' + store.user.id,
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
@@ -47,7 +47,7 @@ const signOut = function (data) {
 const getStates = function (data) {
   return $.ajax({
     method: 'GET',
-    url: config.apiOrigin + '/games',
+    url: config.apiOrigin + 'games',
     headers: {
       Authorization: 'Token token=' + store.user.token
     }

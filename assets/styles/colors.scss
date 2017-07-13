@@ -3,6 +3,7 @@ $pure-black: #000;
 $test-red: #f4020e;
 $test-blue: #161eff;
 $test-green: #05fc63;
+$orange: #e55829;
 
 nav {
   background-color: $pure-white;
@@ -18,4 +19,8 @@ nav {
 
 footer {
   background-color: $pure-white;
+}
+
+.fun {
+  background-color: $test-red;
 }

@@ -13,9 +13,9 @@
   align-content: stretch;
   background-color: $pure-white;
   border: 2px solid $pure-black;
-  height: 200px;
-  width: 200px;
-  font-size: 175px;
+  font-size: 115px;
+  height: 150px;
+  width: 150px;
 
 }
 
@@ -24,4 +24,8 @@
   float: right;
   height: 600px;
   width: 200px;
+}
+
+.error-reader {
+  background-color: $pure-white;
 }

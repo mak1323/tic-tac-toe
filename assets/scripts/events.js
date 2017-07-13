@@ -1,11 +1,9 @@
 'use strict'
 
-const getFormFields = require('../../lib/get-form-fields')
 const gameboardRef = require('./gameboard')
 const winners = require('./winningconditions')
 const moves = require('./playermove')
-const autheventer = ('./auth/authevents')
-const newGameGen = ('./newgame')
+const api = require('./auth/api')
 
 let playerOne = [] // empty array for player one's turns
 let playerTwo = [] // empty array for player two's turns
@@ -26,10 +24,10 @@ const positionToValue = function (currentBox) {
 
 const boardReset = function () {
   for (let i = 0; i < currentGameBoard.length; i++) {
-      if (currentGameBoard[i].state === true) {
-        currentGameBoard[i].state = false
-      }
+    if (currentGameBoard[i].state === true) {
+      currentGameBoard[i].state = false
     }
+  }
 }
 
 const logicReset = function () {
@@ -46,7 +44,10 @@ const boardSet = function (event) {
   event.preventDefault()
   boardReset()
   logicReset()
+  $('#errorReader').text('')
+  $('.box').on('click', playerMove).on()
 }
+
 const xMove = function (currentMove, currentBox) {
   playerOne.push({
     'move': currentMove
@@ -71,6 +72,20 @@ const oMove = function (currentMove, currentBox) {
   x.appendTo($(currentBox))
 }
 
+const endResults = function (playerOne, playerTwo) {
+  if (winners.checkVictory(playerOne)) {
+    $('#errorReader').text('You win! New game?')
+    $('.box').on('click', playerMove).off()
+  } else if (winners.checkVictory(playerTwo)) {
+    $('#errorReader').text('Player two wins! New game?')
+    $('.box').on('click', playerMove).off()
+  } else if (gameRecord.length === 9 &&
+    !(winners.checkVictory(playerOne) && !winners.checkVictory(playerTwo))) {
+    $('#errorReader').text('You tied?! What are you new? New game?')
+    $('.box').on('click', playerMove).off()
+  }
+}
+
 const playerMove = function (event) {
   event.preventDefault()
   const currentBox = this
@@ -92,16 +107,8 @@ const playerMove = function (event) {
     oMove(currentMove, currentBox)
     playerTurn = 0
   }
-  if (winners.checkVictory(playerOne)) {
-    console.log('Player One wins')
-    console.log(gameRecord)
-  } else if (winners.checkVictory(playerTwo)) {
-    console.log('Player Two wins')
-    console.log(gameRecord)
-  } else if (gameRecord.length === 9 &&
-    !(winners.checkVictory(playerOne) && !winners.checkVictory(playerTwo))) {
-    console.log('tie')
-  }
+
+  endResults(playerOne, playerTwo)
 }
 
 module.exports = {

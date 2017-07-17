@@ -5,7 +5,6 @@ const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 const events = require('../events')
-const store = require('../store')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -55,18 +54,18 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
+const updateGame = function (data) {
+  event.preventDefault
+  api.updateGame(data)
+  .then(ui.successfulUpdate)
+  .catch(ui.failedUpdate)
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn).on('submit', events.boardSet)
   $('#change-password').on('submit', onChangePassword)
   $('#signout').on('submit', onSignOut)
-}
-
-const updateGame = function (data) {
-  event.preventDefault
-  api.updateGame(data)
-    .then(ui.successfulUpdate)
-    .catch(ui.failedUpdate)
 }
 
 module.exports = {

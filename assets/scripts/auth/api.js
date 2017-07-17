@@ -71,7 +71,8 @@ const updateGame = function (data) {
     url: config.apiOrigin + 'games/' + ui.gameId(),
     headers: {
       Authorization: 'Token token=' + store.user.token
-    }
+    },
+    data: data
   })
 }
 

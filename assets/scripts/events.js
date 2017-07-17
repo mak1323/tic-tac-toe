@@ -139,6 +139,7 @@ const playerMove = function (event) {
       "over": endResults(playerOne, playerTwo)
     }
   }
+  console.log(data)
   auth.updateGame(data)
 }
 

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>TicTacToe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags unless you know what you are doing -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags unless you know what you are doing -->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body class="container-fluid">
+  <header>
+    <div class="row">
+      <div class="col-xs-5"></div>
+      <div class="col-xs-2"></div>
+      <div class="col-xs-5"></div>
+    </div>
+    <h1>Tic Tac Toe</h1>
+    <nav class="container">
+      <form id="sign-up">
+  <fieldset>
+    <legend>Sign up!</legend>
+  <input name="credentials[email]" type="text" value="an@example.email">
+  <input name="credentials[password]" type="password" value="stuff">
+  <input name="credentials[password_confirmation]" type="password" value="stuff">
+    <input type="submit" name="submit" value="Sign up!">
+  </fieldset>
+</form>
+<form id="sign-in">
+  <fieldset>
+    <legend>Sign in!</legend>
+    <input type="text" placeholder="EMAIL" name="credentials[email]">
+    <input type="password" placeholder="PASSWORD" name="credentials[password]">
+    <input type="submit" name="submit" value="Sign In!">
+  </fieldset>
+</form>
+<form id="change-password">
+  <fieldset>
+    <legend>Change Password!</legend>
+    <input type="password" placeholder="OLD PASSWORD" name="passwords[old]">
+    <input type="password" placeholder="NEW PASSWORD" name="passwords[new]">
+    <input type="submit" name="submit" value="Change!">
+  </fieldset>
+</form>
+<form id="signout">
+  <input type="submit" name="submit" value="BYE!">
+</form>
+    </nav>
+  </header>
+  <hr>
+  <div class="game-notes">
+    <h2>Stuff!</h2>
+    <p>Tic Tac Toe, or as it was known in ancient times, Tic Tac Toe is a game that has been around for thousands of hours. It was the
+      the favorite game of Alexander Graham Bellington, the third in line for the throne of ballpark bathroom. He would play this game on the
+    walls of the stall whilest others waited for him to leave the doorless porcelain chamber. He was not a pleasant man.</p>
+    <div class="container game-stats">
+      <div class="row">
+        <div class="col-xs-4">
+    <h4 id="wins"> Wins:</h4><p id='wins-stat'></p>
+  </div>
+      <div class="col-xs-4">
+    <h4 id="losses"> Losses:</h4><p id='losses-stat'></p>
+  </div>
+      <div class="col-xs-4">
+    <h4 id="ties"> Ties:</h4><p id='ties-stat'></p>
+  </div>
+</div>
+</div>
+  <div class="row game-stats">
+    <div class="col-xs-8">
+    </div>
+    <button id="new-game">New Game</button>
+  </div>
+  </div>
+
+<div id="game-station"></div>
+
+  <div class="container game-box" id="game-box">
+    <div class="row">
+      <div class="col-xs-3">
+      </div>
+      <div class="col-xs-6">
+        <div class="row">
+          <div class="col-xs-4 box" id="0">
+            <div class="game-box-top-left">
+
+              <!-- <p>gameBoxTopLeft [0,0]</p> -->
+            </div>
+          </div>
+          <div class="col-xs-4 box" id="1">
+            <div class="game-box-top-middle">
+
+              <!-- <p>gameBoxTopMiddle [0,1]</p> -->
+            </div>
+          </div>
+          <div class="col-xs-4 box" id="2">
+            <div class="game-box-top-right">
+
+              <!-- <p>gameBoxTopRight [0,2]</p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-3">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">
+      </div>
+      <div class="col-xs-6">
+        <div class="row">
+          <div class="col-xs-4 box" id="3">
+            <div class="game-box-middle-left">
+              <!-- <p>gameBoxMiddleLeft [1,0]</p> -->
+            </div>
+          </div>
+          <div class="col-xs-4 box" id="4">
+            <div class="game-box-middle-middle">
+
+              <!-- <p>gameBoxMiddleMiddle [1,1]</p> -->
+            </div>
+          </div>
+          <div class="col-xs-4 box" id="5">
+            <div class="game-box-middle-right">
+
+              <!-- <p>gameBoxMiddleRight [1,2]</p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-3">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">
+      </div>
+      <div class="col-xs-6">
+        <div class="row">
+          <div class="col-xs-4 box" id="6">
+            <div class="game-box-bottom-left">
+
+              <!-- <p>gameBoxBottomLeft[2,0]</p> -->
+            </div>
+          </div>
+          <div class="col-xs-4 box" id="7">
+            <div class="game-box-bottom-middle">
+
+              <!-- <p>gameBoxBottomMiddle [2,1]</p> -->
+            </div>
+          </div>
+          <div class="col-xs-4 box" id="8">
+            <div class="game-box-bottom-right">
+
+              <!-- <p>gameBoxBottomRight [2,2] </p> -->
+            </div>
+            <div class="col-xs-3">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <h1 class=" error-reader" id="errorReader"></h1>
+    <h3>:-)</h3>
+  </footer>
+
+</body>
+
+</html>

@@ -139,7 +139,7 @@ const playerMove = function (event) {
       "over": endResults(playerOne, playerTwo)
     }
   }
-  api.updateGame(data)
+  auth.updateGame(data)
 }
 
 module.exports = {

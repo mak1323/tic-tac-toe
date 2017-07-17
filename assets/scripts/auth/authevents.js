@@ -65,10 +65,12 @@ const addHandlers = () => {
 const updateGame = function (data) {
   event.preventDefault
   api.updateGame(data)
+    .then(ui.successfulUpdate)
+    .catch(ui.failedUpdate)
 }
 
 module.exports = {
   addHandlers,
-  updateGame,
   createGame,
+  updateGame
 }

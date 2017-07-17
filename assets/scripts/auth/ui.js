@@ -202,6 +202,9 @@ const changePasswordFailure = function () {
 }
 
 const signOutSuccess = function () {
+  $('#wins-stat').text('')
+  $('#losses-stat').text('')
+  $('#ties-stat').text('')
   gameEnd()
 }
 
@@ -230,6 +233,14 @@ const getStatesFailure = (data) => {
   message("You're not ready to play.")
 }
 
+const successfulUpdate = (data) => {
+  message("Next Player's turn.")
+}
+
+const failedUpdate = (data) => {
+  message("This game isn't saving. Sorry")
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -243,5 +254,7 @@ module.exports = {
   createGameFailure,
   getStatesSuccess,
   getStatesFailure,
+  successfulUpdate,
+  failedUpdate,
   gameId
 }

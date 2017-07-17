@@ -1,6 +1,7 @@
 'use strict'
 const config = require('../config')
 const store = require('../store')
+const ui = require('./ui')
 
 // this is my sign up function, working well
 const signUp = function (data) {
@@ -54,10 +55,32 @@ const getStates = function (data) {
   })
 }
 
+const createGameState = function (data) {
+  return $.ajax({
+    method: 'POST',
+    url: config.apiOrigin + 'games',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const updateGame = function (data) {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiOrigin + 'games/' + ui.gameId(),
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut,
-  getStates
+  getStates,
+  createGameState,
+  updateGame
 }

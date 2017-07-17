@@ -5,6 +5,7 @@ const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 const events = require('../events')
+const store = require('../store')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -19,21 +20,31 @@ const onSignUp = function (event) {
   }
 }
 
+const createGame = function () {
+  event.preventDefault
+  api.createGameState()
+    .then(ui.createGameSuccess)
+    .catch(ui.createGameFailure)
+  api.getStates()
+    .then(ui.getStatesSuccess)
+    .catch(ui.getStatesFailure)
+}
+
 const onSignIn = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   console.log(data)
   api.signIn(data)
-  .then(ui.signInSuccess)
-  .catch(ui.signInFailure)
+    .then(ui.signInSuccess)
+    .catch(ui.signInFailure)
 }
 
 const onChangePassword = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   api.changePassword(data)
-  .then(ui.changePasswordSuccess)
-  .catch(ui.changePasswordFailure)
+    .then(ui.changePasswordSuccess)
+    .catch(ui.changePasswordFailure)
 }
 
 const onSignOut = function (event) {
@@ -44,13 +55,6 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
-const gameUpdate = function (event) {
-  event.preventDefault()
-  const data = getFormFields(this)
-  api.getStates(data)
-  console.log(data)
-}
-
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn).on('submit', events.boardSet)
@@ -58,7 +62,13 @@ const addHandlers = () => {
   $('#signout').on('submit', onSignOut)
 }
 
+const updateGame = function (data) {
+  event.preventDefault
+  api.updateGame(data)
+}
+
 module.exports = {
   addHandlers,
-  gameUpdate
+  updateGame,
+  createGame,
 }

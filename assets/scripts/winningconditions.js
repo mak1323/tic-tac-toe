@@ -1,46 +1,7 @@
 'use strict'
 
-const winningConditions = [{
-  winOne: [0, 0],
-  winTwo: [0, 1],
-  winThree: [0, 2]
-},
-{
-  winOne: [1, 0],
-  winTwo: [1, 1],
-  winThree: [1, 2]
-},
-{
-  winOne: [2, 0],
-  winTwo: [2, 1],
-  winThree: [2, 2]
-},
-{
-  winOne: [0, 0],
-  winTwo: [1, 0],
-  winThree: [2, 0]
-},
-{
-  winOne: [0, 1],
-  winTwo: [1, 1],
-  winThree: [2, 1]
-},
-{
-  winOne: [0, 2],
-  winTwo: [1, 2],
-  winThree: [2, 2]
-},
-{
-  winOne: [0, 2],
-  winTwo: [1, 1],
-  winThree: [2, 0]
-},
-{
-  winOne: [0, 0],
-  winTwo: [1, 1],
-  winThree: [2, 2]
-}
-]
+const store = require('./store')
+
 // Winning conditions zero
 const isWinZeroZero = (moves) => {
   if (moves.move[0] === 0 && moves.move[1] === 0) {
@@ -372,6 +333,5 @@ const checkVictory = function (playerarr) {
 }
 
 module.exports = {
-  winningConditions,
   checkVictory
 }

@@ -9,134 +9,149 @@ let lossAccum = 0
 
 const checkWin0 = function (games) {
   if (games.cells[0] + games.cells[1] + games.cells[2] === 'xxx') {
-    winsAccum += 1
+    return true
   }
 }
 
 const checkWin1 = function (games) {
   if (games.cells[3] + games.cells[4] + games.cells[5] === 'xxx') {
-    winsAccum += 1
+    return true
   }
 }
 
 const checkWin2 = function (games) {
   if (games.cells[6] + games.cells[7] + games.cells[8] === 'xxx') {
-    winsAccum += 1
+    return true
   }
 }
 
 const checkWin3 = function (games) {
   if (games.cells[0] + games.cells[3] + games.cells[6] === 'xxx') {
-    winsAccum += 1
+    return true
   }
 }
 
 const checkWin4 = function (games) {
   if (games.cells[1] + games.cells[4] + games.cells[7] === 'xxx') {
-    winsAccum += 1
+    return true
   }
 }
 
 const checkWin5 = function (games) {
   if (games.cells[2] + games.cells[5] + games.cells[8] === 'xxx') {
-    winsAccum += 1
+    return true
   }
 }
 
 const checkWin6 = function (games) {
   if (games.cells[0] + games.cells[4] + games.cells[8] === 'xxx') {
-    winsAccum += 1
+    return true
   }
 }
 
 const checkWin7 = function (games) {
   if (games.cells[2] + games.cells[4] + games.cells[6] === 'xxx') {
-    winsAccum += 1
+    return true
   }
 }
 
 const checkLosses0 = (games) => {
   if (games.cells[0] + games.cells[1] + games.cells[2] === 'ooo') {
-    lossAccum += 1
+    return true
   }
 }
 
 const checkLosses1 = (games) => {
   if (games.cells[3] + games.cells[4] + games.cells[5] === 'ooo') {
-    lossAccum += 1
+    return true
   }
 }
 
 const checkLosses2 = (games) => {
   if (games.cells[6] + games.cells[7] + games.cells[8] === 'ooo') {
-    lossAccum += 1
+    return true
   }
 }
 
 const checkLosses3 = (games) => {
   if (games.cells[0] + games.cells[3] + games.cells[6] === 'ooo') {
-    lossAccum += 1
+    return true
   }
 }
 
 const checkLosses4 = (games) => {
   if (games.cells[1] + games.cells[4] + games.cells[7] === 'ooo') {
-    lossAccum += 1
+    return true
   }
 }
 
 const checkLosses5 = (games) => {
   if (games.cells[2] + games.cells[5] + games.cells[8] === 'ooo') {
-    lossAccum += 1
+    return true
   }
 }
 
 const checkLosses6 = (games) => {
   if (games.cells[0] + games.cells[4] + games.cells[8] === 'ooo') {
-    lossAccum += 1
+    return true
   }
 }
 
 const checkLosses7 = (games) => {
   if (games.cells[2] + games.cells[4] + games.cells[6] === 'ooo') {
+    return true
+  }
+}
+
+const condenceLoss = function (games) {
+  if (checkLosses0(games)) {
+    lossAccum += 1
+  } else if (checkLosses1(games)) {
+    lossAccum += 1
+  } else if (checkLosses2(games)) {
+    lossAccum += 1
+  } else if (checkLosses3(games)) {
+    lossAccum += 1
+  } else if (checkLosses4(games)) {
+    lossAccum += 1
+  } else if (checkLosses5(games)) {
+    lossAccum += 1
+  } else if (checkLosses6(games)) {
+    lossAccum += 1
+  } else if (checkLosses7(games)) {
     lossAccum += 1
   }
 }
 
 const condenceWin = function (games) {
-  checkWin0(games)
-  checkWin1(games)
-  checkWin2(games)
-  checkWin3(games)
-  checkWin4(games)
-  checkWin5(games)
-  checkWin6(games)
-  checkWin7(games)
+  if (checkWin0(games)) {
+    winsAccum += 1
+  } else if (checkWin1(games)) {
+    winsAccum += 1
+  } else if (checkWin2(games)) {
+    winsAccum += 1
+  } else if (checkWin3(games)) {
+    winsAccum += 1
+  } else if (checkWin4(games)) {
+    winsAccum += 1
+  } else if (checkWin5(games)) {
+    winsAccum += 1
+  } else if (checkWin6(games)) {
+    winsAccum += 1
+  } else if (checkWin7(games)) {
+    winsAccum += 1
+  }
 }
-
-const condenceLoss = function (games) {
-  checkLosses0(games)
-  checkLosses1(games)
-  checkLosses2(games)
-  checkLosses3(games)
-  checkLosses4(games)
-  checkLosses5(games)
-  checkLosses6(games)
-  checkLosses7(games)
-}
-
 const winLoss = function (games) {
   condenceWin(games)
   condenceLoss(games)
 }
 
 const getGameStats = function (games) {
-  console.log(winsAccum)
-  console.log(lossAccum)
+  winsAccum = 0
+  lossAccum = 0
   for (let i = 0; i < games.length; i++) {
     winLoss(games[i])
-    console.log(winsAccum)
-    console.log(lossAccum)
   }
   const ties = games.length - (winsAccum + lossAccum)
   $('#wins-stat').text(winsAccum)
@@ -225,7 +240,7 @@ const createGameFailure = (data) => {
 const getStatesSuccess = (data) => {
   message("You're ready to play.")
   store.games = data
-  games = store.games
+  games = store.games.games
   getGameStats(games)
 }
 
@@ -234,7 +249,7 @@ const getStatesFailure = (data) => {
 }
 
 const successfulUpdate = (data) => {
-  message("Next Player's turn.")
+  // message("Next Player's turn.")
 }
 
 const failedUpdate = (data) => {

@@ -44,8 +44,6 @@ const boardSet = function (event) {
   logicReset()
   $('#game-box').show()
   auth.createGame()
-  console.log(store.games)
-
   $('.box').on('click', playerMove).on()
 }
 
@@ -104,13 +102,11 @@ const endResults = function (playerOne, playerTwo) {
     $('.box').on('click', playerMove).off()
     gameOver = true
   }
-  return gameOver
 }
 
 const playerMove = function (event) {
   event.preventDefault()
   const currentBox = this
-
   const currentMove = positionToValue(currentBox)
   const currentMoveForPatch = valueToPosition(currentBox)
   for (let i = 0; i < currentGameBoard.length; i++) {
@@ -130,13 +126,14 @@ const playerMove = function (event) {
     oMove(currentMove, currentMoveForPatch, currentBox)
     playerTurn = 0
   }
+  endResults(playerOne, playerTwo)
   const data = {
     "game": {
       "cell": {
         "index": currentMoveForPatch,
         "value": value
       },
-      "over": endResults(playerOne, playerTwo)
+      "over": gameOver
     }
   }
   auth.updateGame(data)
